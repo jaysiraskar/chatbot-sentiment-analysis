@@ -18,7 +18,8 @@ class UserScore(models.Model):
     score = models.FloatField(default=0.0)
     posCount = models.IntegerField(default=0)
     negCount = models.IntegerField(default=0)
-    updatedAt = models.DateTimeField(default=timezone.now(), editable=True)
+    updatedAt = models.DateTimeField(default=timezone.now)
+
 
     def __str__(self) -> str:
         return self.owner.user.username+'__'+str(self.updatedAt)

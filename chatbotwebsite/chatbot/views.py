@@ -37,15 +37,13 @@ def checkUrl(url):
 
 def getChatbotResponse(userQuery):
     global CHATBOT_URL
-    response = requests.post(url=CHATBOT_URL, params={
-                             'userQuery': str(userQuery)})
+    response = requests.post(url=CHATBOT_URL, params={ 'userQuery': str(userQuery)})
     responseJson = response.json()
     res = (responseJson['user_query'],
            responseJson['chatbot_response'],
-           datetime.now(pytz.timezone('Asia/Kolkata')
-                        ).strftime("%d-%m-%Y %H:%M:%S"),
+           datetime.now(pytz.timezone('Asia/Kolkata')).strftime("%D-%M-%Y %H:%M:%S"),
            )
-    return res
+    return {res}
 
 
 def getSentenceListFromChats(chats):
